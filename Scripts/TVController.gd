@@ -1,6 +1,5 @@
 extends Node2D
-
-onready var ChannelManager = preload('res://Scenes/ChannelManager.tscn')
+onready var ChannelManager = preload('res://Scenes/TVComponents/ChannelManager.tscn')
 
 # Declare member variables here. Examples:
 # var a = 2
