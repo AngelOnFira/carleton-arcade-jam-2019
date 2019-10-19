@@ -1,6 +1,6 @@
 extends "res://Scripts/TVComponents/TVComponents.gd"
 
-onready var ChannelScene = preload('res://Scenes/Channel.tscn')
+onready var ChannelScene = preload('res://Scenes/TVComponents/Channel.tscn')
 
 var all_possible_channels = [];
 	
