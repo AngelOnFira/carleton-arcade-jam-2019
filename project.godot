@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jam"
-run/main_scene="res://Scenes/TV.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 
 [input]
 

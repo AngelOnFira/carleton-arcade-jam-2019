@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 onready var ChannelManager = preload('res://Scenes/TVComponents/ChannelManager.tscn')
 
 var signal_delta = 0
@@ -21,6 +21,8 @@ var component_focus = [
 func _ready():
 	var new_channel_manager = ChannelManager.instance()
 	add_child(new_channel_manager)
+	move_child(new_channel_manager, 0)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
