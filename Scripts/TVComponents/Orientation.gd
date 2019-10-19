@@ -15,5 +15,3 @@ func get_rotation_in_degrees():
 
 func get_rotation_in_radians():
 	return (PI/180) * orientation
-	
-

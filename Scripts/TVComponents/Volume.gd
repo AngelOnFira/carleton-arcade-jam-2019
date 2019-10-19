@@ -1,5 +1,5 @@
 extends "res://Scripts/TVComponents/TVComponents.gd"
-var volume : int # Range is 1 - 10
+var volume : int # Range is 0 - 10
 
 func _ready():
 	pass # Replace with function body.

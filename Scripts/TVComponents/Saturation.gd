@@ -1,5 +1,5 @@
 extends "res://Scripts/TVComponents/TVComponents.gd"
-var saturation : int # Range is 1 - 10
+var saturation : int # Range is 0 - 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
