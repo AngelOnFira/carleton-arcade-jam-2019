@@ -28,8 +28,10 @@ func _intialiaze_manager(level: int):
 
 
 func change_channel(channel_number: int):
+	if channel_number >= channel_list.size():
+		pass
 	channel_list[channel_index].hide()
-	self.channel_index = channel_number
+	channel_index = channel_number
 	channel_list[channel_index].show()
 
 # Called when the node enters the scene tree for the first time.
