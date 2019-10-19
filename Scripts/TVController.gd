@@ -20,8 +20,8 @@ var component_focus = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var new_channel_manager = ChannelManager.instance()
-	add_child(new_channel_manager)
-	move_child(new_channel_manager, 0)
+	$ScreenArea.add_child(new_channel_manager)
+	$ScreenArea.move_child(new_channel_manager, 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

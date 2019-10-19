@@ -12,10 +12,8 @@ __meta__ = {
 }
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 320.0
-margin_bottom = 226.0
+margin_right = 288.0
+margin_bottom = 224.0
 stream = ExtResource( 2 )
 autoplay = true
 __meta__ = {
