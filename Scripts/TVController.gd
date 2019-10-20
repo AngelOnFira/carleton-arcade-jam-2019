@@ -309,3 +309,65 @@ func _process_input():
 			pass
 		_: # In case of Error
 			pass
+			
+	# Update Components based on what is in focus PLAYER TWO
+	match focus_p2:
+		-1: # No need to process input
+			pass
+		0: # ChannelManager
+			if not (current_joystick_input_one < 0 or current_joystick_input_one > 7):
+				$ScreenArea/Channels.change_channel(current_joystick_input_one)
+		1: # Volume
+			if current_joystick_input_one == 2:
+				$VolumeControl/VolumeController.decrease_volume()
+			elif current_joystick_input_one == 6:
+				$VolumeControl/VolumeController.increase_volume()
+			get_parent().get_node("TVUI/Volume").change_volume($VolumeControl/VolumeController.get_volume())
+		2: # Saturation
+			if current_joystick_input_one == 0:
+				$SaturationControl/SaturationController.increase_saturation()
+			elif current_joystick_input_one == 4:
+				$SaturationControl/SaturationController.decrease_saturation()
+			pass
+		3: # Zoom
+			$ZoomControl/ZoomController.change_zoom()
+			pass
+		4: # Orientation
+			if (current_joystick_input_one == previous_joystick_input_one):
+				pass
+			if (current_joystick_input_one - 1 + 8) % 8 != previous_joystick_input_one and (current_joystick_input_one + 1) % 8 != previous_joystick_input_one :
+				rotation_joystick_counter = 0
+				rotation_direction = true
+			elif (current_joystick_input_one - 1 + 8) % 8 == previous_joystick_input_one: # User is rotating left
+				print("CHECK LEFT")
+				if rotation_joystick_counter == 0:
+					rotation_direction = true
+				if not rotation_direction:
+					rotation_joystick_counter = 0
+					print("RESET")
+				else:
+					rotation_joystick_counter += 1
+			elif (current_joystick_input_one + 1) % 8 == previous_joystick_input_one: # User is rotating right
+				print("CHECK RIGHT")
+				if rotation_joystick_counter == 0:
+					rotation_direction = false
+				if rotation_direction:
+					rotation_joystick_counter = 0
+					print("RESET")
+				else:
+					rotation_joystick_counter += 1
+			
+			if rotation_joystick_counter >= 4:
+				if rotation_direction:
+					$RotationControl/OrientationController.rotate_left()
+				else:
+					$RotationControl/OrientationController.rotate_right()
+			
+		5: # Cyan
+			pass
+		6: # Yellow
+			pass
+		7: # Magenta
+			pass
+		_: # In case of Error
+			pass
