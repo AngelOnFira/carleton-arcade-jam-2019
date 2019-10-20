@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/TV.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/panel.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -30,6 +32,93 @@ rect_min_size = Vector2( 325, 0 )
 margin_right = 325.0
 margin_bottom = 14.0
 text = "Player one"
+
+[node name="WoodPanelLeft" type="Sprite" parent="Window/PlayerZone/Player1"]
+position = Vector2( 158.613, 236.921 )
+scale = Vector2( 1.30749, 1.79895 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 105.47, 200, 300, 200 )
+
+[node name="ButtonsLeftRowsTop" type="VBoxContainer" parent="Window/PlayerZone/Player1"]
+margin_top = 18.0
+margin_right = 325.0
+margin_bottom = 122.0
+
+[node name="ButtonsLeftCols" type="HBoxContainer" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop"]
+margin_right = 325.0
+margin_bottom = 50.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols"]
+margin_left = 56.0
+margin_right = 106.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button2" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols"]
+margin_left = 110.0
+margin_right = 160.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button3" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols"]
+margin_left = 164.0
+margin_right = 214.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button4" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols"]
+margin_left = 218.0
+margin_right = 268.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="ButtonsLeftCols2" type="HBoxContainer" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop"]
+margin_top = 54.0
+margin_right = 325.0
+margin_bottom = 104.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2"]
+margin_left = 56.0
+margin_right = 106.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button2" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2"]
+margin_left = 110.0
+margin_right = 160.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button3" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2"]
+margin_left = 164.0
+margin_right = 214.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button4" type="Button" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2"]
+margin_left = 218.0
+margin_right = 268.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 329.0
@@ -61,6 +150,94 @@ __meta__ = {
 margin_right = 325.0
 margin_bottom = 14.0
 text = "Player two"
+
+[node name="WoodPanelRight" type="Sprite" parent="Window/PlayerZone/Player2"]
+position = Vector2( 162.89, 236.688 )
+scale = Vector2( 1.25582, 1.799 )
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 359.32, 200, 300, 200 )
+
+[node name="ButtonsRightRowsTop" type="VBoxContainer" parent="Window/PlayerZone/Player2"]
+margin_top = 18.0
+margin_right = 325.0
+margin_bottom = 122.0
+
+[node name="ButtonsRightCols" type="HBoxContainer" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop"]
+margin_right = 325.0
+margin_bottom = 50.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols"]
+margin_left = 56.0
+margin_right = 106.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button2" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols"]
+margin_left = 110.0
+margin_right = 160.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button3" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols"]
+margin_left = 164.0
+margin_right = 214.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button4" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols"]
+margin_left = 218.0
+margin_right = 268.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="ButtonsRightCols2" type="HBoxContainer" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop"]
+margin_top = 54.0
+margin_right = 325.0
+margin_bottom = 104.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols2"]
+margin_left = 56.0
+margin_right = 106.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button2" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols2"]
+margin_left = 110.0
+margin_right = 160.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button3" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols2"]
+margin_left = 164.0
+margin_right = 214.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
+
+[node name="Button4" type="Button" parent="Window/PlayerZone/Player2/ButtonsRightRowsTop/ButtonsRightCols2"]
+margin_left = 218.0
+margin_right = 268.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "VOL"
 
 [node name="BottomInfo" type="HBoxContainer" parent="Window"]
 margin_top = 500.0

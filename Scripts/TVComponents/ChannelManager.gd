@@ -19,7 +19,7 @@ func _add_new_channel(video_index: int):
 func _intialiaze_manager(level: int):
 	match level:
 		1:
-			_add_new_channel(1)
+			_add_new_channel(0)
 			channel_index = 0
 		2:
 			pass
@@ -47,7 +47,7 @@ func _load_videos(path):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while (file_name != ""):
-			if file_name.find(".webm") >= 0:
+			if file_name.find(".ogv") >= 0:
 				var new_video = load(path + "/" + file_name)
 				all_possible_channels.append(new_video)
 			file_name = dir.get_next()

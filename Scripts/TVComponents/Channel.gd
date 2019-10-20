@@ -1,6 +1,6 @@
 extends Control
 
-func set_video_stream(video_stream: VideoStreamWebm):
+func set_video_stream(video_stream: VideoStreamTheora):
 	$VideoPlayer.stream = video_stream
 
 func _ready():
