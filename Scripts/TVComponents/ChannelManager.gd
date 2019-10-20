@@ -21,8 +21,12 @@ func load_level(level : int):
 	match level:
 		1:
 			_add_new_channel(0)
+			_add_new_channel(1)
+			_add_new_channel(2)
+			_add_new_channel(3)
+			_add_new_channel(4)
 			channel_index = 0
-			target_goal = 0
+			target_goal = randi() % 5
 		2:
 			pass
 		_:
@@ -43,7 +47,6 @@ func _ready():
 	_intialiaze_manager(1)
 	channel_list[channel_index].show()
 
-
 func _load_videos(path):
 	var dir = Directory.new()
 	if dir.open(path) == OK:
@@ -56,3 +59,6 @@ func _load_videos(path):
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
+
+func check_goal():
+	return target_goal == channel_index
