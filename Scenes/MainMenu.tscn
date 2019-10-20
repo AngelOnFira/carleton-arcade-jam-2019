@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Shaders/TVGreenScreenShaderMenu.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Sprites/tv-menu.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Videos/vhs.ogv" type="VideoStream" id=3]
+[ext_resource path="res://Assets/Fonts/MenuItemVCR.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/MenuTitleVCR.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_left = 620.0
+margin_top = 213.463
+margin_right = 794.0
+margin_bottom = 320.463
+stream = ExtResource( 3 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 1 )
+position = Vector2( 712.395, 294.5 )
+scale = Vector2( 1.4488, 1.4488 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 47.8204
+margin_top = 48.9867
+margin_right = 799.82
+margin_bottom = 193.987
+custom_fonts/font = ExtResource( 6 )
+text = "For Your
+Viewing Pleasure"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 88.6427
+margin_top = 261.263
+margin_right = 291.643
+margin_bottom = 470.263
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Label" parent="Buttons"]
+margin_top = -1.0
+margin_right = 290.0
+margin_bottom = 66.63
+rect_min_size = Vector2( 0, 67.63 )
+custom_fonts/font = SubResource( 4 )
+text = "-> Start"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="Buttons"]
+margin_top = 70.0
+margin_right = 290.0
+margin_bottom = 137.63
+rect_min_size = Vector2( 0, 67.63 )
+custom_fonts/font = SubResource( 4 )
+text = "   Credits"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Label" parent="Buttons"]
+margin_top = 141.0
+margin_right = 290.0
+margin_bottom = 208.63
+rect_min_size = Vector2( 0, 67.63 )
+custom_fonts/font = SubResource( 4 )
+text = "   Exit"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

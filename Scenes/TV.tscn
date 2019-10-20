@@ -1,33 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Sprites/tv.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/TVController.gd" type="Script" id=2]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
- 
-uniform vec4 masking_color1 : hint_color;
-uniform vec4 masking_color2 : hint_color;
-uniform float masking_range = 0.1;
- 
-void fragment()
-{
-	vec4 image_pixel = texture(TEXTURE, UV);
-	
-	if (
-		length(abs(masking_color1 - image_pixel)) <= masking_range ||
-		length(abs(masking_color2 - image_pixel)) <= masking_range
-		)
-	{
-		discard;
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/masking_color1 = Color( 0.00392157, 0.960784, 0.137255, 1 )
-shader_param/masking_color2 = Color( 0, 0, 0.996078, 1 )
-shader_param/masking_range = 0.7
+[ext_resource path="res://Resources/Shaders/TVGreenScreenShaderGame.tres" type="Material" id=3]
 
 [node name="TV" type="Control"]
 script = ExtResource( 2 )
@@ -49,7 +24,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
+material = ExtResource( 3 )
 position = Vector2( 197.78, 179.88 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
