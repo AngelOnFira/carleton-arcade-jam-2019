@@ -8,8 +8,6 @@ var channel_list = []
 var channel_index = 0;
 
 func _add_new_channel(video_index: int):
-	print("here")
-	
 	var new_channel = ChannelScene.instance()
 	new_channel.set_video_stream(all_possible_channels[video_index])
 	new_channel.hide()
@@ -17,19 +15,24 @@ func _add_new_channel(video_index: int):
 	channel_list.append(new_channel)
 
 func _intialiaze_manager(level: int):
+	load_level(level)
+
+func load_level(level : int):
 	match level:
 		1:
 			_add_new_channel(0)
 			channel_index = 0
+			target_goal = 0
 		2:
 			pass
 		_:
 			pass
 
-
 func change_channel(channel_number: int):
+	if channel_number >= channel_list.size():
+		pass
 	channel_list[channel_index].hide()
-	self.channel_index = channel_number
+	channel_index = channel_number
 	channel_list[channel_index].show()
 
 # Called when the node enters the scene tree for the first time.

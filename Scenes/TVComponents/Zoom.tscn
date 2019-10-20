@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/TVComponents/Zoom.gd" type="Script" id=1]
 
-[node name="Zoom" type="Control"]
+[node name="ZoomController" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
