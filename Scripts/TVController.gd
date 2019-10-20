@@ -43,7 +43,7 @@ func _ready():
 	var new_saturation_controller = SaturationComponent.instance()
 	$SaturationControl.add_child(new_saturation_controller)
 	
-	_set_up_game_level(1)
+	_set_up_game_level(2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -151,7 +151,6 @@ func _process_input():
 				break
 			focus = i
 	
-	# print("FOCUS: " + str(focus))
 	# Update Components based on what is in focus
 	match focus :
 		-1: # No need to process input
@@ -170,7 +169,7 @@ func _process_input():
 				$SaturationControl/SaturationController.increase_saturation()
 			elif current_joystick_input == 4:
 				$SaturationControl/SaturationController.decrease_saturation()
-			pass
+			get_parent().get_node("TVUI/Saturation").change_saturation($SaturationControl/SaturationController.get_saturation())
 		3: # Zoom
 			pass
 		4: # Orientation
