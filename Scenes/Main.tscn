@@ -24,12 +24,12 @@ __meta__ = {
 
 [node name="PlayerZone" type="HBoxContainer" parent="Window"]
 margin_right = 1024.0
-margin_bottom = 596.0
+margin_bottom = 496.0
 size_flags_vertical = 3
 
 [node name="Player1" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_right = 325.0
-margin_bottom = 596.0
+margin_bottom = 496.0
 rect_min_size = Vector2( 325, 0 )
 
 [node name="Label" type="Label" parent="Window/PlayerZone/Player1"]
@@ -104,7 +104,7 @@ text = "YLW"
 [node name="TVView" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 329.0
 margin_right = 695.0
-margin_bottom = 596.0
+margin_bottom = 496.0
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="Window/PlayerZone/TVView"]
@@ -132,7 +132,7 @@ margin_bottom = -0.190002
 [node name="Player2" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 699.0
 margin_right = 1024.0
-margin_bottom = 596.0
+margin_bottom = 496.0
 rect_min_size = Vector2( 325, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -238,7 +238,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "VOL"
 
 [node name="BottomInfo" type="HBoxContainer" parent="Window"]
-margin_top = 600.0
+margin_top = 500.0
 margin_right = 1024.0
-margin_bottom = 700.0
+margin_bottom = 600.0
 rect_min_size = Vector2( 0, 100 )

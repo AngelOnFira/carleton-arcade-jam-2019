@@ -13,10 +13,11 @@ func change_volume(new_volume: int):
 	$VolumeBar.text = volume_text
 	
 	self.show()
-	hide_timer.set_wait_time( 2 )
+	hide_timer.set_wait_time( 1.5 )
 	hide_timer.start()
 	
 func _ready():
+	self.hide()
 	hide_timer = Timer.new()
 	add_child(hide_timer)
 	hide_timer.connect("timeout",self,"_on_hide_timer_timeout")
