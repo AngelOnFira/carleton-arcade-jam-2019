@@ -8,7 +8,7 @@ func _ready():
 func _init(starting_saturation=5):
 	saturation = starting_saturation * 100
 
-func load_random_target_saturation():
+func load_random_target():
 	target_goal = randi() % 11
 
 func increase_saturation():

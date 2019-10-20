@@ -7,7 +7,7 @@ func _ready():
 func _init(starting_volume=5):
 	volume = starting_volume * 100
 
-func load_random_target_volume():
+func load_random_target():
 	target_goal = randi() % 11
 
 func increase_volume():

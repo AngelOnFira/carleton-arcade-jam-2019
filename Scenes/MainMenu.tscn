@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Shaders/TVGreenScreenShaderMenu.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/tv-menu.jpg" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Fonts/MenuTitleVCR.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/Videos/vhs2.ogv" type="VideoStream" id=8]
+[ext_resource path="res://Assets/Videos/vhs3.ogv" type="VideoStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -26,6 +28,28 @@ margin_top = 213.463
 margin_right = 794.0
 margin_bottom = 320.463
 stream = ExtResource( 3 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer2" type="VideoPlayer" parent="."]
+margin_left = 467.0
+margin_top = 255.0
+margin_right = 574.0
+margin_bottom = 340.0
+stream = ExtResource( 8 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer3" type="VideoPlayer" parent="."]
+margin_left = 711.0
+margin_top = 347.0
+margin_right = 843.0
+margin_bottom = 453.0
+stream = ExtResource( 9 )
 autoplay = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,7 +117,9 @@ margin_right = 835.72
 margin_bottom = 534.976
 custom_fonts/font = ExtResource( 7 )
 text = "Enzo Arenas
-Forest Anderson"
+Forest Anderson
+Kelvin Ratsamany
+Malcolm Smith"
 __meta__ = {
 "_edit_use_anchors_": false
 }

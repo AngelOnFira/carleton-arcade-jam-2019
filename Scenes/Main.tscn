@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/panel.jpg" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/TV.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/InteractionUI/SaturationUI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/TVComponents/Panel/ButtonPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/InteractionUI/VolumeUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/TVComponents/Panel/ButtonPanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/InteractionUI/VolumeUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/InteractionUI/SaturationUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Fonts/CountdownTimerFont.tres" type="DynamicFont" id=8]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -25,18 +26,18 @@ __meta__ = {
 
 [node name="PlayerZone" type="HBoxContainer" parent="Window"]
 margin_right = 1024.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 size_flags_vertical = 3
 
 [node name="Player1" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_right = 325.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 325, 0 )
 
 [node name="Label" type="Label" parent="Window/PlayerZone/Player1"]
 margin_right = 325.0
 margin_bottom = 14.0
-text = "Player one"
+text = " "
 
 [node name="Control" type="Control" parent="Window/PlayerZone/Player1"]
 margin_top = 18.0
@@ -61,19 +62,19 @@ margin_right = 325.0
 margin_bottom = 50.0
 alignment = 1
 
-[node name="Button1" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 6 )]
+[node name="Button1" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 5 )]
 text = "CHNL"
 
-[node name="Button2" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 6 )]
+[node name="Button2" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 5 )]
 margin_left = 110.0
 margin_right = 160.0
 
-[node name="Button3" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 6 )]
+[node name="Button3" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 5 )]
 margin_left = 164.0
 margin_right = 214.0
 text = "SAT"
 
-[node name="Button4" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 6 )]
+[node name="Button4" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols" instance=ExtResource( 5 )]
 margin_left = 218.0
 margin_right = 268.0
 text = "ZOOM"
@@ -84,20 +85,20 @@ margin_right = 325.0
 margin_bottom = 104.0
 alignment = 1
 
-[node name="Button1" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 6 )]
+[node name="Button1" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 5 )]
 text = "ORI"
 
-[node name="Button2" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 6 )]
+[node name="Button2" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 5 )]
 margin_left = 110.0
 margin_right = 160.0
 text = "CYN"
 
-[node name="Button3" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 6 )]
+[node name="Button3" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 5 )]
 margin_left = 164.0
 margin_right = 214.0
 text = "MGA"
 
-[node name="Button4" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 6 )]
+[node name="Button4" parent="Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols2" instance=ExtResource( 5 )]
 margin_left = 218.0
 margin_right = 268.0
 text = "YLW"
@@ -105,7 +106,7 @@ text = "YLW"
 [node name="TVView" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 329.0
 margin_right = 695.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="Window/PlayerZone/TVView"]
@@ -113,11 +114,21 @@ margin_right = 366.0
 margin_bottom = 53.52
 rect_min_size = Vector2( 0, 53.52 )
 
+[node name="TimeLeft" type="Label" parent="Window/PlayerZone/TVView/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 8 )
+text = "1:50.23"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TV" parent="Window/PlayerZone/TVView" instance=ExtResource( 4 )]
 margin_top = 57.0
 margin_right = 366.0
 margin_bottom = 57.0
-size_flags_horizontal = 3
 
 [node name="TVUI" type="Control" parent="Window/PlayerZone/TVView"]
 margin_top = 61.0
@@ -125,12 +136,12 @@ margin_right = 366.0
 margin_bottom = 330.19
 rect_min_size = Vector2( 0, 269.19 )
 
-[node name="Volume" parent="Window/PlayerZone/TVView/TVUI" instance=ExtResource( 7 )]
+[node name="Volume" parent="Window/PlayerZone/TVView/TVUI" instance=ExtResource( 6 )]
 margin_left = 80.0
 margin_top = 207.0
 margin_bottom = -0.190002
 
-[node name="Saturation" parent="Window/PlayerZone/TVView/TVUI" instance=ExtResource( 5 )]
+[node name="Saturation" parent="Window/PlayerZone/TVView/TVUI" instance=ExtResource( 7 )]
 margin_left = 71.0
 margin_top = 174.0
 margin_right = 71.0
@@ -140,7 +151,7 @@ rect_scale = Vector2( 1, 0.5 )
 [node name="Player2" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 699.0
 margin_right = 1024.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 325, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -149,7 +160,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="Window/PlayerZone/Player2"]
 margin_right = 325.0
 margin_bottom = 14.0
-text = "Player two"
+text = " "
 
 [node name="Control2" type="Control" parent="Window/PlayerZone/Player2"]
 margin_top = 18.0
@@ -246,7 +257,14 @@ custom_fonts/font = ExtResource( 3 )
 text = "VOL"
 
 [node name="BottomInfo" type="HBoxContainer" parent="Window"]
-margin_top = 500.0
+margin_top = 450.0
 margin_right = 1024.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 100 )
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Command" type="Label" parent="Window/BottomInfo"]
+margin_top = 57.0
+margin_right = 161.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 8 )
+text = "Command"
