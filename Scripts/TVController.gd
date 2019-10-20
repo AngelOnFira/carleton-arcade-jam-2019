@@ -116,7 +116,18 @@ func _set_up_game_level(level : int):
 			pass
 
 func _check_for_goal():
-	pass 
+	for i in component_focus.size():
+		if component_focus[i][1]:
+			component_focus[i][2] = _check_goal_for_component(i)
+
+func _check_goal_for_component(component: int):
+	match component:
+		1:
+			return $ScreenArea/Channels.check_goal()
+		2:
+			return $VolumeControl/VolumeController.check_goal()
+		_:
+			return false
 
 func _process_input():
 	# Process RAW User input

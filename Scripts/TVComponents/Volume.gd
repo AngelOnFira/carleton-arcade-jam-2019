@@ -20,3 +20,6 @@ func decrease_volume():
 
 func get_volume():
 	return volume / 100
+
+func check_goal():
+	return volume == target_goal
