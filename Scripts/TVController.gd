@@ -45,6 +45,7 @@ func _ready():
 	$SaturationControl.add_child(new_saturation_controller)
 	
 	var new_zoom_controller = ZoomComponent.instance()
+	$ZoomControl.add_child(new_zoom_controller)
 	
 	_set_up_game_level(1)
 
@@ -170,7 +171,6 @@ func _process_input():
 				break
 			focus = i
 	
-	# print("FOCUS: " + str(focus))
 	# Update Components based on what is in focus
 	match focus :
 		-1: # No need to process input
@@ -191,6 +191,7 @@ func _process_input():
 				$SaturationControl/SaturationController.decrease_saturation()
 			pass
 		3: # Zoom
+			$ZoomControl/ZoomController.change_zoom()
 			pass
 		4: # Orientation
 			pass
