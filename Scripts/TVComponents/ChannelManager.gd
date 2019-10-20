@@ -18,16 +18,15 @@ func _add_new_channel(video_index: int):
 func _intialiaze_manager(level: int):
 	load_level(level)
 
+func load_random_target():
+	target_goal = randi() % 8
+
 func load_level(level : int):
 	match level:
 		1:
-			_add_new_channel(0)
-			_add_new_channel(1)
-			_add_new_channel(2)
-			_add_new_channel(3)
-			_add_new_channel(4)
+			for i in range(8):
+				_add_new_channel(i)
 			channel_index = 0
-			target_goal = randi() % 5
 		2:
 			pass
 		_:
@@ -42,8 +41,7 @@ func change_channel(channel_number: int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	_load_videos("res://Assets/Videos")
+	_load_videos("res://Assets/GameVideos")
 
 	_intialiaze_manager(1)
 	channel_list[channel_index].show()

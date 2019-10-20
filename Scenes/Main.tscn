@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/panel.jpg" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/InteractionUI/VolumeUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/TV.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/InteractionUI/SaturationUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Fonts/CountdownTimerFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Assets/Fonts/CommandGoalFont.tres" type="DynamicFont" id=9]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -25,12 +27,12 @@ __meta__ = {
 
 [node name="PlayerZone" type="HBoxContainer" parent="Window"]
 margin_right = 1024.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 size_flags_vertical = 3
 
 [node name="Player1" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_right = 325.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 325, 0 )
 
 [node name="Label" type="Label" parent="Window/PlayerZone/Player1"]
@@ -105,7 +107,7 @@ text = "YLW"
 [node name="TVView" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 329.0
 margin_right = 695.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="Window/PlayerZone/TVView"]
@@ -123,7 +125,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TV" parent="Window/PlayerZone/TVView" instance=ExtResource( 6 )]
+[node name="TV" parent="Window/PlayerZone/TVView" instance=ExtResource( 5 )]
 margin_top = 57.0
 margin_right = 366.0
 margin_bottom = 57.0
@@ -150,7 +152,7 @@ rect_scale = Vector2( 1, 0.5 )
 [node name="Player2" type="VBoxContainer" parent="Window/PlayerZone"]
 margin_left = 699.0
 margin_right = 1024.0
-margin_bottom = 496.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 325, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -256,7 +258,14 @@ custom_fonts/font = ExtResource( 3 )
 text = "VOL"
 
 [node name="BottomInfo" type="HBoxContainer" parent="Window"]
-margin_top = 500.0
+margin_top = 450.0
 margin_right = 1024.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 100 )
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Command" type="Label" parent="Window/BottomInfo"]
+margin_top = 53.0
+margin_right = 203.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 8 )
+text = "Command"

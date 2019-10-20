@@ -55,7 +55,7 @@ func _ready():
 	var new_rotation_controller = OrientationComponent.instance()
 	$RotationControl.add_child(new_rotation_controller)
 	
-	_set_up_game_level(4)
+	set_up_game_level(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -162,24 +162,24 @@ func _process_joystick_pressed():
 	else:
 		current_joystick_input_two = previous_joystick_input_two
 
-func _set_up_game_level(level : int):
+func set_up_game_level(level : int):
 	match level:
 		1:
 			$ScreenArea/Channels.load_level(1)
-			$VolumeControl/VolumeController.load_random_target_volume()
+			$VolumeControl/VolumeController.load_random_target()
 			component_focus[0][1] = true
 			component_focus[1][1] = true
 		2:
 			$ScreenArea/Channels.load_level(1)
-			$VolumeControl/VolumeController.load_random_target_volume()
-			$SaturationControl/SaturationController.load_random_target_saturation()
+			$VolumeControl/VolumeController.load_random_target()
+			$SaturationControl/SaturationController.load_random_target()
 			component_focus[0][1] = true
 			component_focus[1][1] = true
 			component_focus[2][1] = true
 		3: 
 			$ScreenArea/Channels.load_level(1)
-			$VolumeControl/VolumeController.load_random_target_volume()
-			$SaturationControl/SaturationController.load_random_target_saturation()
+			$VolumeControl/VolumeController.load_random_target()
+			$SaturationControl/SaturationController.load_random_target()
 			$ZoomControl/ZoomController.load_new_target_zoom()
 			component_focus[0][1] = true
 			component_focus[1][1] = true
@@ -187,8 +187,8 @@ func _set_up_game_level(level : int):
 			component_focus[3][1] = true
 		4:
 			$ScreenArea/Channels.load_level(1)
-			$VolumeControl/VolumeController.load_random_target_volume()
-			$SaturationControl/SaturationController.load_random_target_saturation()
+			$VolumeControl/VolumeController.load_random_target()
+			$SaturationControl/SaturationController.load_random_target()
 			$ZoomControl/ZoomController.load_new_target_zoom()
 			$RotationControl/OrientationController.load_new_target_orientation()
 			component_focus[0][1] = true
