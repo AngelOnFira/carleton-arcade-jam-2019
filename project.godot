@@ -16,10 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="jam"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 
 [display]
 
+window/size/borderless=true
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 
@@ -27,7 +29,8 @@ window/stretch/aspect="keep_width"
 
 ui_accept={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
 }
 ui_select={
 "deadzone": 0.5,
@@ -35,7 +38,8 @@ ui_select={
 }
 ui_cancel={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
 }
 ui_focus_next={
 "deadzone": 0.5,
