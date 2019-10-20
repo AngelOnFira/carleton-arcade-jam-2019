@@ -1,6 +1,6 @@
 extends Control
 
-var timer_amount: float = 10.00
+var timer_amount: float = 30.00
 var current_level: int = 1
 var remaining_commands: int = 2
 
