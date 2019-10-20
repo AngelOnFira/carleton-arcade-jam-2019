@@ -1,8 +1,8 @@
 extends Control
 
-var timer_amount: float = 120.00
+var timer_amount: float = 10.00
 var current_level: int = 1
-var remaining_commands: int = 5
+var remaining_commands: int = 2
 
 onready var left_player_buttons = [
 	$Window/PlayerZone/Player1/ButtonsLeftRowsTop/ButtonsLeftCols/Button1,
@@ -67,16 +67,21 @@ func _process(delta):
 
 	_update_timer(delta)
 	if timer_amount <= 0.0:
-		pass
-		#game over
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 	if commands[0][1].check_goal():
 		commands[0] = _spawn_command()
 		remaining_commands -= 1
+		if current_level < 5:
+			timer_amount += 1/5.5 * pow(current_level - 6, 2) + 0.5
+		else:
+			timer_amount += 0.5
+
 		if remaining_commands <= 0:
 			current_level += 1
 			remaining_commands = current_level * 5
-			#$Window/PlayerZone/TVView/TV/ScreenArea
+			$Window/PlayerZone/TVView/TV.set_up_game_level(current_level)
+			print("Level " + str(current_level))
 
 
 func _update_timer(delta):
@@ -86,7 +91,7 @@ func _update_timer(delta):
 	$Window/PlayerZone/TVView/Control/TimeLeft.set_text(mins_left + ":" + seconds_left)
 
 func _spawn_command():
-	var random_command = (randi() % (command_options.size() + 1)) - 1
+	var random_command = (randi() % (levels[current_level - 1]))
 	command_options[random_command][1].load_random_target()
 	var target_value = command_options[random_command][1].target_goal
 	$Window/BottomInfo/Command.set_text(str(command_options[random_command][0]) + str(target_value))

@@ -38,7 +38,7 @@ rect_min_size = Vector2( 325, 0 )
 [node name="Label" type="Label" parent="Window/PlayerZone/Player1"]
 margin_right = 325.0
 margin_bottom = 14.0
-text = "Player one"
+text = " "
 
 [node name="Control" type="Control" parent="Window/PlayerZone/Player1"]
 margin_top = 18.0
@@ -125,7 +125,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TV" parent="Window/PlayerZone/TVView" instance=ExtResource( 5 )]
+[node name="TV" parent="Window/PlayerZone/TVView" instance=ExtResource( 4 )]
 margin_top = 57.0
 margin_right = 366.0
 margin_bottom = 57.0
@@ -161,7 +161,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="Window/PlayerZone/Player2"]
 margin_right = 325.0
 margin_bottom = 14.0
-text = "Player two"
+text = " "
 
 [node name="Control2" type="Control" parent="Window/PlayerZone/Player2"]
 margin_top = 18.0

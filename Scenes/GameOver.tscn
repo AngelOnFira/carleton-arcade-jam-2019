@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/MenuTitleVCR.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GameOver.gd" type="Script" id=2]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 288.553
+margin_top = 256.744
+margin_right = 711.553
+margin_bottom = 327.744
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
