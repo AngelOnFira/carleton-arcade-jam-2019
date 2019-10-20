@@ -266,7 +266,7 @@ func _process_input():
 				$SaturationControl/SaturationController.increase_saturation()
 			elif current_joystick_input_one == 4:
 				$SaturationControl/SaturationController.decrease_saturation()
-			pass
+			get_parent().get_node("TVUI/Saturation").change_saturation($SaturationControl/SaturationController.get_saturation())
 		3: # Zoom
 			$ZoomControl/ZoomController.change_zoom()
 			pass

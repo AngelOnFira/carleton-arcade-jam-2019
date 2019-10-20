@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/TVComponents/Channel.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Shaders/ChannelSaturation.tres" type="Material" id=2]
 
 [node name="Channel" type="Control"]
 anchor_right = 1.0
@@ -11,6 +12,7 @@ __meta__ = {
 }
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
+material = ExtResource( 2 )
 margin_right = 288.0
 margin_bottom = 224.0
 autoplay = true

@@ -20,8 +20,6 @@ run/main_scene="res://Scenes/MainMenu.tscn"
 
 [display]
 
-window/size/borderless=true
-window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 

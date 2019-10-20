@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/TVUI/SaturationUI.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaturationBar" type="Label" parent="."]
+margin_right = 207.0
+margin_bottom = 15.0
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 1 )
+text = "[ | | | | | | | | | | ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
