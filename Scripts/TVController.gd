@@ -9,6 +9,7 @@ onready var ColorCodeManager = preload("res://Scenes/TVComponents/ColorCodeManag
 # Logging joystick input
 var previous_joystick_input : int
 var current_joystick_input : int
+var corner_joystick_logging : int
 var next_level = false
 
 # Keeps track what buttons have been pressed [focus, avaliable, clear]
@@ -43,6 +44,8 @@ func _ready():
 	var new_saturation_controller = SaturationComponent.instance()
 	$SaturationControl.add_child(new_saturation_controller)
 	
+	var new_zoom_controller = ZoomComponent.instance()
+	
 	_set_up_game_level(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,9 +68,7 @@ func _process_button_pressed():
 		else:
 			component_focus[i][0] = false
 
-func _process_joystick_pressed():
-	previous_joystick_input = current_joystick_input
-	
+func _process_joystick_pressed():	
 	if Input.is_action_just_pressed("player_one_joystick_up") or Input.is_action_pressed("player_one_joystick_up"):
 		if Input.is_action_pressed("player_one_joystick_left"):
 			current_joystick_input = 1
@@ -98,6 +99,15 @@ func _process_joystick_pressed():
 			current_joystick_input = 6
 	else:
 		current_joystick_input = -1
+		
+	if current_joystick_input != previous_joystick_input:
+		corner_joystick_logging += 1
+	
+	if corner_joystick_logging > 2:
+		previous_joystick_input = current_joystick_input
+		corner_joystick_logging = 0
+	else:
+		current_joystick_input = previous_joystick_input
 
 func _set_up_game_level(level : int):
 	match level:
@@ -107,12 +117,21 @@ func _set_up_game_level(level : int):
 			component_focus[0][1] = true
 			component_focus[1][1] = true
 		2:
-			$ScreenArea/Channels.load_level(2)
+			$ScreenArea/Channels.load_level(1)
 			$VolumeControl/VolumeController.load_random_target_volume()
 			$SaturationControl/SaturationController.load_random_target_saturation()
 			component_focus[0][1] = true
 			component_focus[1][1] = true
 			component_focus[2][1] = true
+		3: 
+			$ScreenArea/Channels.load_level(1)
+			$VolumeControl/VolumeController.load_random_target_volume()
+			$SaturationControl/SaturationController.load_random_target_saturation()
+			$ZoomControl/ZoomController.load_new_target_zoom()
+			component_focus[0][1] = true
+			component_focus[1][1] = true
+			component_focus[2][1] = true
+			component_focus[3][1] = true
 		_:
 			pass
 
