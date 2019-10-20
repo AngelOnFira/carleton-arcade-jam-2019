@@ -32,6 +32,7 @@ func _ready():
 	var new_channel_manager = ChannelManager.instance()
 	$ScreenArea.add_child(new_channel_manager)
 	$ScreenArea.move_child(new_channel_manager, 0)
+	$ScreenArea.Channels.initalize_manager(1)
 	
 	# Volume Controller
 	var new_volume_controller = VolumeComponent.instance()
@@ -58,9 +59,9 @@ func _randomize_signals():
 
 func _process_button_pressed():
 	for i in component_focus.size():
-		if Input.is_action_just_pressed("player_one_button_" + (i+1)):
+		if Input.is_action_just_pressed("player_one_button_" + str(i+1)):
 			component_focus[i][0] = true
-		elif Input.is_action_just_released("player_one_button_" + (i+1)):
+		elif Input.is_action_just_released("player_one_button_" + str(i+1)):
 			component_focus[i][0] = false
 	pass
 
@@ -125,6 +126,7 @@ func _process_input():
 				break
 			focus = i
 	
+	print(current_joystick_input)
 	# Update Components based on what is in focus
 	match focus :
 		-1: # No need to process input
