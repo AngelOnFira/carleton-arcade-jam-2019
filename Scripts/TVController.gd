@@ -40,6 +40,10 @@ func _ready():
 	var new_volume_controller = VolumeComponent.instance()
 	$VolumeControl.add_child(new_volume_controller)
 	
+	# Saturation Controller
+	var new_saturation_controller = SaturationComponent.instance()
+	$SaturationControl.add_child(new_saturation_controller)
+	
 	_set_up_game_level(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -106,8 +110,10 @@ func _set_up_game_level(level : int):
 		2:
 			$ScreenArea/Channels.load_level(2)
 			$VolumeControl/VolumeController.load_random_target_volume()
+			$SaturationControl/SaturationController.load_random_target_saturation()
 			component_focus[0][1] = true
 			component_focus[1][1] = true
+			component_focus[2][1] = true
 		_:
 			pass
 
@@ -140,7 +146,7 @@ func _process_input():
 	# Check to see what TV Component should be focused
 	var focus = -1;
 	for i in component_focus.size():
-		if component_focus[i][0]:
+		if component_focus[i][0] and component_focus[i][1]:
 			if focus > -1: # If multiple keys are pressed
 				focus = -1
 				break
@@ -161,6 +167,10 @@ func _process_input():
 				$VolumeControl/VolumeController.increase_volume()
 			get_parent().get_node("TVUI/Volume").change_volume($VolumeControl/VolumeController.get_volume())
 		2: # Saturation
+			if current_joystick_input == 0:
+				$SaturationControl/SaturationController.increase_saturation()
+			elif current_joystick_input == 4:
+				$SaturationControl/SaturationController.decrease_saturation()
 			pass
 		3: # Zoom
 			pass
