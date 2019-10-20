@@ -1,6 +1,7 @@
 extends "res://Scripts/TVComponents/TVComponents.gd"
 
 onready var ChannelScene = preload('res://Scenes/TVComponents/Channel.tscn')
+onready var SaturationShader = preload("res://Resources/Shaders/ChannelSaturation.tres")
 
 var all_possible_channels = [];
 	
@@ -60,5 +61,11 @@ func _load_videos(path):
 	else:
 		print("An error occurred when trying to access the path.")
 
+func set_saturation(s: float):
+	SaturationShader.set_shader_param("saturation", s/10)
+
 func check_goal():
 	return target_goal == channel_index
+
+func _process(delta):
+	set_saturation(get_node("../../SaturationControl/SaturationController").get_saturation())

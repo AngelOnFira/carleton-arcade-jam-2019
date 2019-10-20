@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+ 
+uniform float saturation = 0;
+ 
+void fragment(){
+	vec3 pixel_colour = texture(TEXTURE, UV).rgb;
+	vec3 white = normalize(vec3(1,1,1));
+	white = dot(pixel_colour, white)*white;
+	pixel_colour = mix(white, pixel_colour, saturation);
+	COLOR = vec4(pixel_colour.x, pixel_colour.y, pixel_colour.z, 1);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/saturation = 0.0
