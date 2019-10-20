@@ -4,11 +4,20 @@ var orientation : int # Range is 0 - 360
 func _ready():
 	pass # Replace with function body.
 
-func rotate_right(rotate_in_degrees : int):
-	orientation = (orientation + 360 + rotate_in_degrees) % 360
+func _init(starting_rotation=0):
+	orientation = starting_rotation
 
-func rotate_left(rotate_in_degress : int):
-	orientation = (orientation + 360 - rotate_in_degress) % 360
+func load_new_target_orientation():
+	target_goal = randi() % 361
+
+func rotate_right():
+	orientation = (orientation + 360 + 5) % 360
+
+func rotate_left():
+	orientation = (orientation + 360 - 5) % 360
+
+func check_goal():
+	return abs(target_goal - orientation) <= 10
 
 func get_rotation_in_degrees():
 	return orientation
