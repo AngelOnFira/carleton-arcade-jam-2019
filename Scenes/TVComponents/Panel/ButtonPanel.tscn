@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=1]
+
+[node name="Button1" type="Button"]
+margin_left = 56.0
+margin_right = 106.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "VOL"

@@ -157,6 +157,7 @@ func _process_input():
 			elif current_joystick_input == 6:
 				$VolumeControl/VolumeController.increase_volume()
 			print("CURRENT VOLUME: " + str($VolumeControl/VolumeController.get_volume()))
+			get_parent().get_node("TVUI/Volume").change_volume($VolumeControl/VolumeController.get_volume())
 		2: # Saturation
 			pass
 		3: # Zoom
