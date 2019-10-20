@@ -1,7 +1,6 @@
 extends Control
 onready var ChannelManager = preload('res://Scenes/TVComponents/ChannelManager.tscn')
 onready var VolumeComponent = preload("res://Scenes/TVComponents/Volume.tscn")
-# warning-ignore:unused_class_variable
 onready var SaturationComponent = preload("res://Scenes/TVComponents/Saturation.tscn")
 onready var ZoomComponent = preload("res://Scenes/TVComponents/Zoom.tscn")
 onready var OrientationComponent = preload("res://Scenes/TVComponents/Orientation.tscn")
