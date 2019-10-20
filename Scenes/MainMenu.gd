@@ -2,7 +2,6 @@ extends Control
 
 onready var menu_buttons = [
 	["Start", $Buttons/Start],
-	["Credits", $Buttons/Credits],
 	["Exit", $Buttons/Exit]
 ]
 

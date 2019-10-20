@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Resources/Shaders/TVGreenScreenShaderMenu.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/tv-menu.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Fonts/MenuItemVCR.tres" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Fonts/MenuTitleVCR.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=7]
 
 [sub_resource type="DynamicFont" id=4]
 size = 50
@@ -73,26 +74,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Label" parent="Buttons"]
+[node name="Exit" type="Label" parent="Buttons"]
 margin_top = 70.0
 margin_right = 290.0
 margin_bottom = 137.63
 rect_min_size = Vector2( 0, 67.63 )
 custom_fonts/font = SubResource( 4 )
-text = "   Credits"
+text = "   Exit"
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Label" parent="Buttons"]
-margin_top = 141.0
-margin_right = 290.0
-margin_bottom = 208.63
-rect_min_size = Vector2( 0, 67.63 )
-custom_fonts/font = SubResource( 4 )
-text = "   Exit"
+[node name="Credits" type="Label" parent="."]
+margin_left = 697.72
+margin_top = 499.976
+margin_right = 835.72
+margin_bottom = 534.976
+custom_fonts/font = ExtResource( 7 )
+text = "Enzo Arenas
+Forest Anderson"
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
