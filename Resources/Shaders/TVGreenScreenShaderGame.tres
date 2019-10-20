@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+ 
+uniform vec4 masking_color1 : hint_color;
+uniform vec4 masking_color2 : hint_color;
+uniform float masking_range = 0.1;
+ 
+void fragment()
+{
+	vec4 image_pixel = texture(TEXTURE, UV);
+	
+	if (
+		length(abs(masking_color1 - image_pixel)) <= masking_range ||
+		length(abs(masking_color2 - image_pixel)) <= masking_range
+		)
+	{
+		discard;
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/masking_color1 = Color( 0, 0.976471, 0.145098, 1 )
+shader_param/masking_color2 = Color( 0, 0, 0.996078, 1 )
+shader_param/masking_range = 0.7
