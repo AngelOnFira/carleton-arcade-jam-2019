@@ -15,15 +15,18 @@ func _add_new_channel(video_index: int):
 	channel_list.append(new_channel)
 
 func _intialiaze_manager(level: int):
+	load_level(level)
+
+func load_level(level : int):
 	match level:
 		1:
 			_add_new_channel(0)
 			channel_index = 0
+			target_goal = 0
 		2:
 			pass
 		_:
 			pass
-
 
 func change_channel(channel_number: int):
 	if channel_number >= channel_list.size():

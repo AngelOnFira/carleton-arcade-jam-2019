@@ -36,6 +36,8 @@ func _ready():
 	# Volume Controller
 	var new_volume_controller = VolumeComponent.instance()
 	$VolumeControl.add_child(new_volume_controller)
+	
+	_set_up_game_level(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -98,8 +100,12 @@ func _process_joystick_pressed():
 func _set_up_game_level(level : int):
 	match level:
 		1:
-			pass
+			$ScreenArea.Channels.load_level(1)
+			$VolumeControl.VolumeController.load_random_target_goal()
 		2:
+			$ScreenArea.Channels.load_level(2)
+			$VolumeControl.VolumeController.load_random_target_goal()
+		_:
 			pass
 
 func _check_for_goal():
@@ -141,4 +147,6 @@ func _process_input():
 		7: # Yellow
 			pass
 		8: # Magenta
+			pass
+		_: # In case of Error
 			pass
