@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/Fonts/MenuTitleVCR.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Fonts/VCRFont.tres" type="DynamicFont" id=7]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 4 )
 
@@ -64,10 +64,10 @@ __meta__ = {
 
 [node name="Start" type="Label" parent="Buttons"]
 margin_top = -1.0
-margin_right = 290.0
+margin_right = 232.0
 margin_bottom = 66.63
 rect_min_size = Vector2( 0, 67.63 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = "-> Start"
 __meta__ = {
 "_edit_lock_": true,
@@ -76,10 +76,10 @@ __meta__ = {
 
 [node name="Exit" type="Label" parent="Buttons"]
 margin_top = 70.0
-margin_right = 290.0
+margin_right = 232.0
 margin_bottom = 137.63
 rect_min_size = Vector2( 0, 67.63 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = "   Exit"
 __meta__ = {
 "_edit_lock_": true,
