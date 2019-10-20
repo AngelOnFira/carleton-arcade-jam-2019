@@ -21,6 +21,10 @@ func load_level(level : int):
 	match level:
 		1:
 			_add_new_channel(0)
+			_add_new_channel(1)
+			_add_new_channel(2)
+			_add_new_channel(3)
+			_add_new_channel(4)
 			channel_index = 0
 			target_goal = 0
 		2:

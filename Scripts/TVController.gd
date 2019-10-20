@@ -24,7 +24,8 @@ var component_focus = [ # Only one can be in focus at a time (maybe turn this in
 
 
 # Debuggin tool
-var signal_delta = 0
+var input_delta = 0
+var random_delta = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,11 +42,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	signal_delta += delta
-	if signal_delta > 3000:
+	input_delta += delta
+	random_delta += delta
+	
+	if random_delta > 3.0:
 		_randomize_signals()
-		signal_delta = 0
-	_process_input()
+		random_delta = 0
+	if input_delta > 1.0 / 60:
+		_process_input()
+		input_delta = 0
 
 func _clear_component_focus():
 	for i in component_focus.size():
@@ -58,11 +63,12 @@ func _randomize_signals():
 
 func _process_button_pressed():
 	for i in component_focus.size():
-		if Input.is_action_just_pressed("player_one_button_" + str(i+1)):
+		if Input.is_action_pressed("player_one_button_" + str(i+1)):
 			component_focus[i][0] = true
-		elif Input.is_action_just_released("player_one_button_" + str(i+1)):
+		else:
 			component_focus[i][0] = false
-	pass
+	
+	print(component_focus[0][0])
 
 func _process_joystick_pressed():
 	previous_joystick_input = current_joystick_input
@@ -97,7 +103,6 @@ func _process_joystick_pressed():
 			current_joystick_input = 6
 	else:
 		current_joystick_input = -1
-	print(current_joystick_input)
 
 func _set_up_game_level(level : int):
 	match level:
@@ -127,29 +132,31 @@ func _process_input():
 				break
 			focus = i
 	
-	print(current_joystick_input)
+	# print("FOCUS: " + str(focus))
 	# Update Components based on what is in focus
 	match focus :
 		-1: # No need to process input
 			pass
-		1: # ChannelManager
-			$ScreenArea/Channels.change_channel(current_joystick_input)
-		2: # Volume
-			if current_joystick_input == 3:
+		0: # ChannelManager
+			if not (current_joystick_input < 0 or current_joystick_input > 7):
+				$ScreenArea/Channels.change_channel(current_joystick_input)
+		1: # Volume
+			if current_joystick_input == 2:
 				$VolumeControl/VolumeController.decrease_volume()
-			elif current_joystick_input == 7:
+			elif current_joystick_input == 6:
 				$VolumeControl/VolumeController.increase_volume()
-		3: # Saturation
+			print("CURRENT VOLUME: " + str($VolumeControl/VolumeController.get_volume()))
+		2: # Saturation
 			pass
-		4: # Zoom
+		3: # Zoom
 			pass
-		5: # Orientation
+		4: # Orientation
 			pass
-		6: # Cyan
+		5: # Cyan
 			pass
-		7: # Yellow
+		6: # Yellow
 			pass
-		8: # Magenta
+		7: # Magenta
 			pass
 		_: # In case of Error
 			pass
