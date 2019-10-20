@@ -80,7 +80,6 @@ func _process_button_pressed():
 			component_focus[i][3] = true
 		else:
 			component_focus[i][3] = false
-		
 
 func _process_joystick_pressed():	
 	if Input.is_action_just_pressed("player_one_joystick_up") or Input.is_action_pressed("player_one_joystick_up"):
@@ -118,7 +117,6 @@ func _process_joystick_pressed():
 		corner_joystick_logging_one += 1
 	
 	if corner_joystick_logging_one > 2:
-		previous_joystick_input_one = current_joystick_input_one
 		corner_joystick_logging_one = 0
 	else:
 		current_joystick_input_one = previous_joystick_input_one
@@ -271,6 +269,7 @@ func _process_input():
 			$ZoomControl/ZoomController.change_zoom()
 			pass
 		4: # Orientation
+			print(str(current_joystick_input_one) + " " + str(previous_joystick_input_one))
 			if (current_joystick_input_one == previous_joystick_input_one):
 				pass
 			if (current_joystick_input_one - 1 + 8) % 8 != previous_joystick_input_one and (current_joystick_input_one + 1) % 8 != previous_joystick_input_one :
@@ -315,45 +314,41 @@ func _process_input():
 		-1: # No need to process input
 			pass
 		0: # ChannelManager
-			if not (current_joystick_input_one < 0 or current_joystick_input_one > 7):
-				$ScreenArea/Channels.change_channel(current_joystick_input_one)
+			if not (current_joystick_input_two < 0 or current_joystick_input_two > 7):
+				$ScreenArea/Channels.change_channel(current_joystick_input_two)
 		1: # Volume
-			if current_joystick_input_one == 2:
+			if current_joystick_input_two == 2:
 				$VolumeControl/VolumeController.decrease_volume()
-			elif current_joystick_input_one == 6:
+			elif current_joystick_input_two == 6:
 				$VolumeControl/VolumeController.increase_volume()
 			get_parent().get_node("TVUI/Volume").change_volume($VolumeControl/VolumeController.get_volume())
 		2: # Saturation
-			if current_joystick_input_one == 0:
+			if current_joystick_input_two == 0:
 				$SaturationControl/SaturationController.increase_saturation()
-			elif current_joystick_input_one == 4:
+			elif current_joystick_input_two == 4:
 				$SaturationControl/SaturationController.decrease_saturation()
 			pass
 		3: # Zoom
 			$ZoomControl/ZoomController.change_zoom()
 			pass
 		4: # Orientation
-			if (current_joystick_input_one == previous_joystick_input_one):
+			if (current_joystick_input_two == previous_joystick_input_two):
 				pass
-			if (current_joystick_input_one - 1 + 8) % 8 != previous_joystick_input_one and (current_joystick_input_one + 1) % 8 != previous_joystick_input_one :
+			if (current_joystick_input_two - 1 + 8) % 8 != previous_joystick_input_two and (current_joystick_input_two + 1) % 8 != previous_joystick_input_two :
 				rotation_joystick_counter = 0
 				rotation_direction = true
-			elif (current_joystick_input_one - 1 + 8) % 8 == previous_joystick_input_one: # User is rotating left
-				print("CHECK LEFT")
+			elif (current_joystick_input_two - 1 + 8) % 8 == previous_joystick_input_two: # User is rotating left
 				if rotation_joystick_counter == 0:
 					rotation_direction = true
 				if not rotation_direction:
 					rotation_joystick_counter = 0
-					print("RESET")
 				else:
 					rotation_joystick_counter += 1
-			elif (current_joystick_input_one + 1) % 8 == previous_joystick_input_one: # User is rotating right
-				print("CHECK RIGHT")
+			elif (current_joystick_input_two + 1) % 8 == previous_joystick_input_two: # User is rotating right
 				if rotation_joystick_counter == 0:
 					rotation_direction = false
 				if rotation_direction:
 					rotation_joystick_counter = 0
-					print("RESET")
 				else:
 					rotation_joystick_counter += 1
 			
