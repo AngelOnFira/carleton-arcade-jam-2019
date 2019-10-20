@@ -8,8 +8,6 @@ var channel_list = []
 var channel_index = 0;
 
 func _add_new_channel(video_index: int):
-	print("here")
-	
 	var new_channel = ChannelScene.instance()
 	new_channel.set_video_stream(all_possible_channels[video_index])
 	new_channel.hide()

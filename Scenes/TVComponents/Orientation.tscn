@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/TVComponents/Orientation.gd" type="Script" id=1]
 
-[node name="Orientation" type="Control"]
+[node name="OrientationController" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )

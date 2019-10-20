@@ -1,6 +1,6 @@
 extends Control
 
-export var component_id : int
+export var target_goal : int
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
