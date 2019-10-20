@@ -32,7 +32,6 @@ func _ready():
 	var new_channel_manager = ChannelManager.instance()
 	$ScreenArea.add_child(new_channel_manager)
 	$ScreenArea.move_child(new_channel_manager, 0)
-	$ScreenArea.Channels.initalize_manager(1)
 	
 	# Volume Controller
 	var new_volume_controller = VolumeComponent.instance()
@@ -68,44 +67,46 @@ func _process_button_pressed():
 func _process_joystick_pressed():
 	previous_joystick_input = current_joystick_input
 	
-	if Input.is_action_just_pressed("player_one_joystick_up"):
+	if Input.is_action_just_pressed("player_one_joystick_up") or Input.is_action_pressed("player_one_joystick_up"):
 		if Input.is_action_pressed("player_one_joystick_left"):
 			current_joystick_input = 1
 		elif Input.is_action_pressed("player_one_joystick_right"):
 			current_joystick_input = 7
 		else:
 			current_joystick_input = 0
-	elif Input.is_action_just_pressed("player_one_joystick_left"):
+	elif Input.is_action_just_pressed("player_one_joystick_left") or Input.is_action_pressed("player_one_joystick_left"):
 		if Input.is_action_pressed("player_one_joystick_up"):
 			current_joystick_input = 1
 		elif Input.is_action_pressed("player_one_joystick_down"):
 			current_joystick_input = 3
 		else:
 			current_joystick_input = 2
-	elif Input.is_action_just_pressed("player_one_joystick_down"):
+	elif Input.is_action_just_pressed("player_one_joystick_down") or Input.is_action_pressed("player_one_joystick_down"):
 		if Input.is_action_pressed("player_one_joystick_left"):
 			current_joystick_input = 3
 		elif Input.is_action_pressed("player_one_joystick_right"):
 			current_joystick_input = 5
 		else:
 			current_joystick_input = 4
-	elif Input.is_action_just_pressed("player_one_joystick_right"):
+	elif Input.is_action_just_pressed("player_one_joystick_right") or Input.is_action_pressed("player_one_joystick_right"):
 		if Input.is_action_pressed("player_one_joystick_down"):
 			current_joystick_input = 5
 		elif Input.is_action_pressed("player_one_joystick_up"):
 			current_joystick_input = 7
 		else:
 			current_joystick_input = 6
+	else:
+		current_joystick_input = -1
 	print(current_joystick_input)
 
 func _set_up_game_level(level : int):
 	match level:
 		1:
-			$ScreenArea.Channels.load_level(1)
-			$VolumeControl.VolumeController.load_random_target_goal()
+			$ScreenArea/Channels.load_level(1)
+			$VolumeControl/VolumeController.load_random_target_volume()
 		2:
-			$ScreenArea.Channels.load_level(2)
-			$VolumeControl.VolumeController.load_random_target_goal()
+			$ScreenArea/Channels.load_level(2)
+			$VolumeControl/VolumeController.load_random_target_volume()
 		_:
 			pass
 
@@ -132,12 +133,12 @@ func _process_input():
 		-1: # No need to process input
 			pass
 		1: # ChannelManager
-			$ScreenArea.Channels.change_channel(current_joystick_input)
+			$ScreenArea/Channels.change_channel(current_joystick_input)
 		2: # Volume
 			if current_joystick_input == 3:
-				$VolumeControl.VolumeController.decrease_volume()
+				$VolumeControl/VolumeController.decrease_volume()
 			elif current_joystick_input == 7:
-				$VolumeControl.VolumeController.increase_volume()
+				$VolumeControl/VolumeController.increase_volume()
 		3: # Saturation
 			pass
 		4: # Zoom
